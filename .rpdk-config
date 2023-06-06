@@ -1,0 +1,23 @@
+{
+    "artifact_type": "HOOK",
+    "typeName": "Personal::Testing::Hook",
+    "language": "python37",
+    "runtime": "python3.7",
+    "entrypoint": "personal_testing_hook.handlers.hook",
+    "testEntrypoint": "personal_testing_hook.handlers.test_entrypoint",
+    "settings": {
+        "version": false,
+        "subparser_name": null,
+        "verbose": 0,
+        "force": false,
+        "type_name": null,
+        "artifact_type": null,
+        "endpoint_url": null,
+        "region": null,
+        "target_schemas": [],
+        "profile": null,
+        "use_docker": true,
+        "no_docker": false,
+        "protocolVersion": "2.0.0"
+    }
+}
