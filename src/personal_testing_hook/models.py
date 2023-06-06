@@ -35,6 +35,9 @@ class HookHandlerRequest(BaseHookHandlerRequest):
 
 @dataclass
 class TypeConfigurationModel(BaseModel):
+    minBuckets: Optional[str]
+    minQueues: Optional[str]
+    encryptionAlgorithm: Optional[str]
 
     @classmethod
     def _deserialize(
@@ -44,6 +47,9 @@ class TypeConfigurationModel(BaseModel):
         if not json_data:
             return None
         return cls(
+            minBuckets=json_data.get("minBuckets"),
+            minQueues=json_data.get("minQueues"),
+            encryptionAlgorithm=json_data.get("encryptionAlgorithm"),
         )
 
 

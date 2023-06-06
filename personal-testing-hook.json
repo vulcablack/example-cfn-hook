@@ -1,35 +1,40 @@
-{
+   {
     "typeName": "Personal::Testing::Hook",
-    "description": "Example resource SSE (Server Side Encryption) verification hook",
-    "sourceUrl": "https://github.com/aws-cloudformation/example-sse-hook",
-    "documentationUrl": "https://github.com/aws-cloudformation/example-sse-hook/blob/master/README.md",
+    "description": "Verifies S3 bucket and SQS queues properties before create and update",
+    "sourceUrl": "https://github.com/vlucablack/example-cfn-hook.git",
+    "documentationUrl": "https://github.com/vulcablack/example-cfn-hook/blob/main/README.md",
     "typeConfiguration": {
         "properties": {
-            "EncryptionAlgorithm": {
+            "minBuckets": {
+                "description": "Minimum number of compliant buckets",
+                "type": "string"
+                
+            },
+            "minQueues": {
+                "description": "Minimum number of compliant queues",
+                "type": "string"
+            },
+            "encryptionAlgorithm": {
                 "description": "Encryption algorithm for SSE",
                 "default": "AES256",
                 "type": "string"
             }
         },
+        "required": [],
         "additionalProperties": false
     },
-    "required": [],
     "handlers": {
         "preCreate": {
             "targetNames": [
-                "AWS::S3::Bucket"
+                "AWS::S3::Bucket",
+                "AWS::SQS::Queue"
             ],
             "permissions": []
         },
         "preUpdate": {
             "targetNames": [
-                "AWS::S3::Bucket"
-            ],
-            "permissions": []
-        },
-        "preDelete": {
-            "targetNames": [
-                "AWS::S3::Bucket"
+                "AWS::S3::Bucket",
+                "AWS::SQS::Queue"
             ],
             "permissions": []
         }

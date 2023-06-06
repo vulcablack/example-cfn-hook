@@ -13,7 +13,9 @@ To activate a hook in your account, use the following JSON as the `Configuration
             "<a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/hooks-structure.html#hooks-targetstacks" title="TargetStacks">TargetStacks</a>":  <a href="#footnote-1">"ALL" | "NONE"</a>,
             "<a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/hooks-structure.html#hooks-failuremode" title="FailureMode">FailureMode</a>": <a href="#footnote-1">"FAIL" | "WARN"</a> ,
             "<a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/hooks-structure.html#hooks-properties" title="Properties">Properties</a>" : {
-                "<a href="#encryptionalgorithm" title="EncryptionAlgorithm">EncryptionAlgorithm</a>" : <i>String</i>
+                "<a href="#minbuckets" title="minBuckets">minBuckets</a>" : <i>String</i>,
+                "<a href="#minqueues" title="minQueues">minQueues</a>" : <i>String</i>,
+                "<a href="#encryptionalgorithm" title="encryptionAlgorithm">encryptionAlgorithm</a>" : <i>String</i>
             }
         }
     }
@@ -22,7 +24,23 @@ To activate a hook in your account, use the following JSON as the `Configuration
 
 ## Properties
 
-#### EncryptionAlgorithm
+#### minBuckets
+
+Minimum number of compliant buckets
+
+_Required_: No
+
+_Type_: String
+
+#### minQueues
+
+Minimum number of compliant queues
+
+_Required_: No
+
+_Type_: String
+
+#### encryptionAlgorithm
 
 Encryption algorithm for SSE
 
@@ -36,6 +54,7 @@ _Type_: String
 ## Targets
 
 * `AWS::S3::Bucket`
+* `AWS::SQS::Queue`
 
 ---
 
